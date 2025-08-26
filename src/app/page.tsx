@@ -1,7 +1,8 @@
 "use client"
 import { SidebarProvider, Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
-import { House,AlignEndHorizontal,ShoppingCart,User,ChartSpline,MessageCircle,Settings,Star,Award,BellDot,ChevronDown} from "lucide-react";
+import { House,AlignEndHorizontal,ShoppingCart,User,ChartSpline,MessageCircle,Settings,Star,Award,BellDot,ChevronDown, Wallet, IndianRupee} from "lucide-react";
 import { useState } from "react";
+import Image from 'next/image'
 
 export default function DashboardLayout({
   children,
@@ -112,16 +113,73 @@ export default function DashboardLayout({
 
 
             <div className="flex gap-5 ">
-              <div className=" flex-[7] gradient-border border-b-0.5 border-[#a9dfd891] relative h-[300px] rounded-lg bg-[#21222D] shadow-lg py-6 px-4">
+              <div className=" flex-[7] flex flex-col gap-4 gradient-border border-b-0.5 border-[#a9dfd891] relative h-[290px] rounded-lg bg-[#21222D] shadow-lg py-6 px-6">
                 <div className="flex flex-col gap-2">
                   <p className="text-gray-300 text-xl font-semibold tracking-wider">Earning Insights</p>
                   <p className="text-gray-400 text-sm  tracking-wider">Performance Summary</p>
                 </div>
                 
-                <div></div>
+                <div className="flex gap-4 ">
+                  <div className="h-[170px] w-full bg-[#171821] shadow-lg rounded-lg flex flex-col px-5 py-3 justify-between">
+                    <div className="mb-4 ">
+                      <Image src="/graph.png" alt="earnings" width={50} height={50} />
+                    </div>
+                    <p className="flex text-xl font-semibold tracking-wide items-center gap-1">
+                      <IndianRupee/>51,060
+                    </p>
+                    <p className="text-gray-400 text-sm tracking-wider">
+                      All time
+                    </p>
+                    <p className="text-[#C4904C] text-sm tracking-wide">
+                      +10% from yesterday
+                    </p>
+                  </div>
+                  <div className="h-[170px] w-full bg-[#171821] shadow-lg rounded-lg flex flex-col px-5 py-3 justify-between">
+                    <div className="mb-4">
+                      <Image src="/battery.png" alt="earnings" width={25} height={25} />
+                    </div>
+                    <p className="flex text-xl font-semibold tracking-wide items-center gap-1">
+                      <IndianRupee/>21,340
+                    </p>
+                    <p className="text-gray-400 text-sm tracking-wider">
+                      All time Paid
+                    </p>
+                    <p className="text-[#85ADAA] text-sm tracking-wide">
+                      +5% from yesterday
+                    </p>
+                  </div>
+                  <div className="h-[170px] w-full bg-[#171821] shadow-lg rounded-lg flex flex-col px-5 py-3 justify-between">
+                    <div className="mb-4">
+                      <Image src="/purse.png" alt="earnings" width={35} height={35} />
+                    </div>
+                    <p className="flex text-xl font-semibold tracking-wide items-center gap-1">
+                      <IndianRupee/>10,162
+                    </p>
+                    <p className="text-gray-400 text-sm tracking-wider">
+                      In last 30 days
+                    </p>
+                    <p className="text-[#F2C8ED] text-sm tracking-wide">
+                      +3% from yesterday
+                    </p>
+                  </div>
+                  <div className="h-[170px] w-full bg-[#171821] shadow-lg rounded-lg flex flex-col px-5 py-3 justify-between">
+                    <div className="mb-4">
+                      <Image src="/user.png" alt="earnings" width={30} height={30} />
+                    </div>
+                    <p className="flex text-xl font-semibold tracking-wide items-center gap-1">
+                      <IndianRupee/>3,890
+                    </p>
+                    <p className="text-gray-400 text-sm tracking-wider">
+                      In last 7 days
+                    </p>
+                    <p className="text-[#20AEF3] text-sm tracking-wide">
+                      -2% from yesterday
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div className=" flex-[3] gradient-border border-b-0.5 border-[#a9dfd891] relative h-[300px] rounded-lg bg-[#21222D] shadow-lg py-6 px-4">
+              <div className=" flex-[3] gradient-border border-b-0.5 border-[#a9dfd891] relative h-[290px] rounded-lg bg-[#21222D] shadow-lg py-6 px-4">
 
               </div>
             </div>
