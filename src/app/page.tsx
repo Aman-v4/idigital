@@ -71,6 +71,8 @@ export default function DashboardLayout({
         </Sidebar>
         <main className="flex-1 overflow-auto">
           <div className="flex flex-col gap-4 mt-16 mx-10">
+
+
             <div className="border-2 flex justify-between items-center border-red-500 h-[100px]  rounded-lg">
                 <div>
                   <p className="text-3xl tracking-wide font-medium">Hello, <span className=" text-[#A9DFD8] ">  Aman Verma🤘</span></p>
@@ -87,11 +89,9 @@ export default function DashboardLayout({
 
                   </div>
                 </div>
-
-
             </div>
 
-            <div className="border-2 border-red-500 h-[100px] rounded-lg">
+            <div className="gradient-border border-b-0.5 border-[#a9dfd891] relative h-[100px] bg-[#21222D] rounded-lg">
 
             </div>
 
