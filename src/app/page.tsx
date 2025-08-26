@@ -180,13 +180,36 @@ export default function DashboardLayout({
               </div>
 
               <div className=" flex-[3] gradient-border border-b-0.5 border-[#a9dfd891] relative h-[290px] rounded-lg bg-[#21222D] shadow-lg py-6 px-4">
+                <div className="flex justify-between items-center">
+                  <p className="text-gray-300 text-xl font-semibold tracking-wider">Earning Level</p>
+                  <div>
+                    dropdown
+                  </div>
+                </div> 
+                <div className="flex justify-center items-center mt-8">
+                  <Image src="/graph2.png" alt="level" width={240} height={240} className="shadow-lg" />
+                  
+                </div>
+
 
               </div>
             </div>
 
 
 
-            <div>
+            <div className="flex gap-5">
+              <div className=" flex-[3] flex flex-col gap-4 gradient-border border-b-0.5 border-[#a9dfd891] relative h-[350px] rounded-lg bg-[#21222D] shadow-lg py-6 px-6">
+                <div className="flex flex-col gap-2">
+                  <p className="text-gray-300 text-xl font-semibold tracking-wider">Earning Insights</p>
+                  <p className="text-gray-400 text-sm  tracking-wider">Performance Summary</p>
+                </div>
+                
+                
+              </div>
+
+              <div className=" flex-[7] gradient-border border-b-0.5 border-[#a9dfd891] relative h-[350px] rounded-lg bg-[#21222D] shadow-lg py-6 px-4">
+                
+              </div>
 
             </div>
           </div>
