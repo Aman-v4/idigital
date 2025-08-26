@@ -199,9 +199,61 @@ export default function DashboardLayout({
 
             <div className="flex gap-5">
               <div className=" flex-[3] flex flex-col gap-4 gradient-border border-b-0.5 border-[#a9dfd891] relative h-[350px] rounded-lg bg-[#21222D] shadow-lg py-6 px-6">
-                <div className="flex flex-col gap-2">
-                  <p className="text-gray-300 text-xl font-semibold tracking-wider">Earning Insights</p>
-                  <p className="text-gray-400 text-sm  tracking-wider">Performance Summary</p>
+                <div className="flex flex-col ">
+                  <p className="text-gray-300 text-xl font-semibold tracking-wider">Your Rank</p>
+                  <p className="text-gray-400 text-sm  tracking-wider">Among other affiliates</p>
+                  <p className="text-[#A9DFD8] text-3xl mt-4 font-semibold tracking-wider">#6987</p>
+                  <div className="flex justify-between items-center border-b border-gray-600/50 py-4">
+                    <div className="flex items-center gap-2">
+                      <div className="rounded-full bg-yellow-200 w-8 h-8">
+
+                      </div>
+                      <p className="text-gray-300 text-sm tracking-wider">
+                        Taniya Patiyal
+                      </p>
+
+                    </div>
+
+                    <div>
+                      <p>#6986</p>
+
+                    </div>
+
+                  </div>
+                  <div className="flex justify-between items-center border-b border-gray-600/50 bg-gray-900/30 py-4">
+                    <div className="flex items-center  gap-2">
+                      <div className="rounded-full bg-green-200 w-8 h-8">
+
+                      </div>
+                      <p className="text-gray-300 text-sm tracking-wider">
+                        Piyush Patiyal
+                      </p>
+
+                    </div>
+
+                    <div>
+                      <p>#6987</p>
+
+                    </div>
+
+                  </div>
+                  <div className="flex justify-between items-center border-b border-gray-600/50 py-4">
+                    <div className="flex items-center gap-2">
+                      <div className="rounded-full bg-pink-200 w-8 h-8">
+
+                      </div>
+                      <p className="text-gray-300 text-sm tracking-wider">
+                        Uttkarsh Singh
+                      </p>
+
+                    </div>
+
+                    <div>
+                      <p>#6988</p>
+
+                    </div>
+
+                  </div>
                 </div>
                 
                 
