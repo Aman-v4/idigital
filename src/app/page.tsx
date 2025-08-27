@@ -10,6 +10,16 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
   
   const links = [
     {
@@ -61,8 +71,11 @@ export default function DashboardLayout({
       <div className="flex h-screen">
         <Sidebar open={open} setOpen={setOpen}>
           <SidebarBody className="justify-between gap-10">
+            <div className="flex justify-center items-center bg-white px-2 py-2 mt-10">
+              <Image src="/razorpaylogo.png" alt="idigital" width={200} height={200} />
+            </div>
             <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-              <div className="mt-8 flex flex-col gap-2">
+              <div className=" flex flex-col gap-2">
                 {links.map((link, idx) => (
                   <SidebarLink key={idx} link={link} />
                 ))}
@@ -79,19 +92,67 @@ export default function DashboardLayout({
                   <p className="text-3xl tracking-wide font-medium">Hello, <span className=" text-[#A9DFD8] ">  Aman Verma🤘</span></p>
                 </div>
 
-                <div className="flex items-center gap-6">
-                  <BellDot />
-                  <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-[#A9DFD8] w-10 h-10">
+                <div className="relative">
+                  <div className="flex items-center gap-6">
+                    <BellDot />
+                    <div 
+                      className="flex items-center gap-2 cursor-pointer hover:bg-[#1d1e34] transition-colors duration-200 ease-in-out rounded-full p-2" 
+                      onClick={toggleDropdown}
+                    >
+                      <div className="rounded-full bg-[#A9DFD8] w-10 h-10">
+                        <Image src="/profile.jpg" alt="user" width={20} height={20} className="rounded-full w-full h-full object-cover" />
+                      </div>
+                      <div className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
+                        <ChevronDown />
+                      </div>
                     </div>
-                    <div>
-                      <ChevronDown />
-                    </div>
-
                   </div>
-                </div>
-            </div>
 
+      
+                    {isOpen && (
+                      <>
+                        <div 
+                          className="fixed inset-0 z-10" 
+                          onClick={closeDropdown}
+                        ></div>
+                        
+                        <div className="absolute right-0 top-full mt-2 w-48 bg-[#1d1e24] text-white rounded-lg shadow-lg border border-gray-600 z-20">
+                          <div className="py-1">
+                            <a 
+                              href="#" 
+                              className="block px-4 py-3 text-sm  hover:bg-[#1d1e34] transition-colors duration-200 ease-in-out"
+                              onClick={closeDropdown}
+                            >
+                              Profile Settings
+                            </a>
+                            <a 
+                              href="#" 
+                              className="block px-4 py-3 text-sm  hover:bg-[#1d1e34] transition-colors duration-200 ease-in-out"
+                              onClick={closeDropdown}
+                            >
+                              Account Preferences
+                            </a>
+                            <a 
+                              href="#" 
+                              className="block px-4 py-3 text-sm  hover:bg-[#1d1e34] transition-colors duration-200 ease-in-out"
+                              onClick={closeDropdown}
+                            >
+                              Help & Support
+                            </a>
+                            <hr className="border-gray-600" />
+                            <a 
+                              href="#" 
+                              className="block px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors duration-150"
+                              onClick={closeDropdown}
+                            >
+                              Sign Out
+                            </a>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+            </div>
 
 
             <div className="flex gap-5 items-center h-[60px] bg-[#21222D] rounded-lg px-6 shadow-lg  ">
@@ -260,6 +321,7 @@ export default function DashboardLayout({
               </div>
 
               <div className=" flex-[7] gradient-border border-b-0.5 border-[#a9dfd891] relative h-[350px] rounded-lg bg-[#21222D] shadow-lg py-6 px-4">
+              <p className="text-gray-300 text-xl font-semibold tracking-wider">Total Earning</p>
                 
               </div>
 
