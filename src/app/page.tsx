@@ -21,6 +21,25 @@ export default function DashboardLayout({
     setIsOpen(false);
   };
   
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [selectedValue2, setSelectedValue2] = useState('Select an option');
+  
+  const options2 = [
+    'Weakly',
+    'Monthly', 
+    'Yearly',
+    'All time'
+  ];
+  
+  const toggleDropdown2 = () => {
+    setIsOpen2(!isOpen2);
+  };
+  
+  const handleSelect2 = (option2: string) => {
+    setSelectedValue2(option2);
+    setIsOpen2(false);
+  };
+
   const links = [
     {
       label: "Dashboard",
@@ -142,7 +161,7 @@ export default function DashboardLayout({
                             <hr className="border-gray-600" />
                             <a 
                               href="#" 
-                              className="block px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors duration-150"
+                              className="block px-4 py-3 text-sm text-red-600 hover:bg-red-500 hover:text-black transition-colors duration-200 ease-in-out"
                               onClick={closeDropdown}
                             >
                               Sign Out
@@ -243,9 +262,42 @@ export default function DashboardLayout({
               <div className=" flex-[3] gradient-border border-b-0.5 border-[#a9dfd891] relative h-[290px] rounded-lg bg-[#21222D] shadow-lg py-6 px-4">
                 <div className="flex justify-between items-center">
                   <p className="text-gray-300 text-xl font-semibold tracking-wider">Earning Level</p>
-                  <div>
-                    dropdown
-                  </div>
+                  <div className="relative">
+                    <div 
+                      className="flex items-center justify-between gap-2 px-2 py-2  bg-[#171821]  rounded-md cursor-pointer hover:border-gray-700 transition-colors min-w-[130px]"
+                      onClick={toggleDropdown2}
+                    >
+                      <span className="text-white text-sm">{selectedValue2}</span>
+                      <div className={`transition-transform duration-200 ${isOpen2 ? 'rotate-180' : ''}`}>
+                        <ChevronDown size={16} />
+                      </div>
+                    </div>
+      
+                  {isOpen2 && (
+                    <>
+                      {/* Backdrop */}
+                      <div 
+                        className="fixed inset-0 z-10" 
+                        onClick={() => setIsOpen2(false)}
+                      ></div>
+                      
+                      {/* Options */}
+                      <div className="absolute top-full left-0 right-0 mt-1 bg-[#171821] text-center rounded-md shadow-lg z-20">
+                        <div className="py-1">
+                          {options2.map((option2, index2) => (
+                            <div
+                              key={index2}
+                              className="px-4 py-2 text-sm text-white hover:bg-[#171821] cursor-pointer transition-colors duration-200 ease-in-out"
+                              onClick={() => handleSelect2(option2)}
+                            >
+                              {option2}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
                 </div> 
                 <div className="flex justify-center items-center mt-8">
                   <Image src="/graph2.png" alt="level" width={240} height={240} className="shadow-lg" />
@@ -267,6 +319,7 @@ export default function DashboardLayout({
                   <div className="flex justify-between items-center border-b border-gray-600/50 py-4">
                     <div className="flex items-center gap-2">
                       <div className="rounded-full bg-yellow-200 w-8 h-8">
+                        <Image src="/profilegirl.jpg" alt="user" width={20} height={20} className="rounded-full w-full h-full object-cover" />
 
                       </div>
                       <p className="text-gray-300 text-sm tracking-wider">
@@ -284,6 +337,7 @@ export default function DashboardLayout({
                   <div className="flex justify-between items-center border-b border-gray-600/50 bg-gray-900/30 py-4">
                     <div className="flex items-center  gap-2">
                       <div className="rounded-full bg-green-200 w-8 h-8">
+                        <Image src="/profile.jpg" alt="user" width={20} height={20} className="rounded-full w-full h-full object-cover" />
 
                       </div>
                       <p className="text-gray-300 text-sm tracking-wider">
@@ -301,7 +355,7 @@ export default function DashboardLayout({
                   <div className="flex justify-between items-center border-b border-gray-600/50 py-4">
                     <div className="flex items-center gap-2">
                       <div className="rounded-full bg-pink-200 w-8 h-8">
-
+                        <Image src="/profile.jpg" alt="user" width={20} height={20} className="rounded-full w-full h-full object-cover" />
                       </div>
                       <p className="text-gray-300 text-sm tracking-wider">
                         Uttkarsh Singh
@@ -320,9 +374,19 @@ export default function DashboardLayout({
                 
               </div>
 
-              <div className=" flex-[7] gradient-border border-b-0.5 border-[#a9dfd891] relative h-[350px] rounded-lg bg-[#21222D] shadow-lg py-6 px-4">
-              <p className="text-gray-300 text-xl font-semibold tracking-wider">Total Earning</p>
-                
+              <div className=" flex-[7] gradient-border border-b-0.5 border-[#a9dfd891] relative h-[350px] rounded-lg bg-[#21222D] shadow-lg py-6 px-6">
+                <div className="flex justify-between items-center">
+                  <p className="text-gray-300 text-xl font-semibold tracking-wider">Total Earning</p>
+                  <div className="flex items-center gap-2 bg-[#171821] rounded-md px-3 py-2">
+                    <div className="rounded-full bg-yellow-700 w-2 h-2">
+                    </div>
+                    <p className="text-gray-300 text-sm tracking-wider">
+                      Revenue
+                    </p>
+                  </div>
+
+                </div>
+                <Image src="/graph3.svg" alt="earnings" width={650} height={650} className=" mt-6 ml-10" />
               </div>
 
             </div>
